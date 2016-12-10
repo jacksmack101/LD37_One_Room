@@ -2,5 +2,7 @@
 // You can write your code in this editor
 
 working = false;
-lastTarget.workedToday = true;
+if(lastTarget.workable){
+	lastTarget.workedToday = true;
+}
 alarm[0] = -1;

@@ -3,6 +3,7 @@
 
 
 glowSize += glowStep;
+rotatePosition += 9;
 
 if(glowSize <=1){
 glowStep = .005;

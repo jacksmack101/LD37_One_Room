@@ -1,7 +1,7 @@
 {
     "id": "7fc45f94-f741-4043-b984-26bb227fc921",
     "modelName": "GMSprite",
-    "mvc": "1.0",
+    "mvc": "1.1",
     "name": "spr_garden_lower",
     "For3D": false,
     "HTile": false,

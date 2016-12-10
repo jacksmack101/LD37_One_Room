@@ -9,11 +9,14 @@ resetReached = true;
 today = 0;
 targetDay = 100;
 dayStarting = true;
-dayLength = 30; // day length in seconds
+defaultDayLength = 1;
+overtimeLimit = 4;
+dayLength = defaultDayLength; // day length in seconds
 target = noone;
 lastTarget = noone;
 working = false;
 moveSpeed = 10;
+workTime = 0;
 
 crops = ds_map_create();
 // crop structure  [ NAME , GROW TIME , ENERGY VALUE, SEED COST]

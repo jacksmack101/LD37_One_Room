@@ -3,4 +3,10 @@
 
 
 pc = (alarm_get(0) / startTime) * 100;
-show_debug_message("ALARM: "+ string(alarm_get(0)));
+
+var playerAlarm = 0;
+with(obj_player){
+	playerAlarm = alarm_get(0);
+}
+//show_debug_message("ALARM: "+ string(playerAlarm));
+workBar = (playerAlarm / (obj_player.workTime * room_speed)) * 100;
