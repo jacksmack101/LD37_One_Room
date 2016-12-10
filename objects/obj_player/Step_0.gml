@@ -1,8 +1,8 @@
 /// @description Character movment
+dayStarting = false;
 
 
-
-if(target != noone && target != lastTarget){
+if(target != noone && target != lastTarget && !working){
 if(resetReached){
 	if (target.x > x){
 		image_xscale = -1;
@@ -15,12 +15,17 @@ if(resetReached){
 		if point_distance(x, y, target.x, target.y+15) > moveSpeed
 		{
 			move_towards_point(target.x, target.y+15, moveSpeed);
+			
 			depth = -y ;
 		
 		}
 		else
 		{ 
 			speed = 0;
+			if(!target.workedToday){
+				alarm[0] = target.workTime * room_speed;
+				working = true;
+			}
 			lastTarget = target;
 			target = noone;
 		}

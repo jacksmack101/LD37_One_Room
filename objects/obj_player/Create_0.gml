@@ -1,15 +1,18 @@
 /// Create Variables
-show_debug_overlay(true);
+//show_debug_overlay(true);
 resetX = x;
 resetY = y;
 targetX = x;
 targetY = y;
+
 resetReached = true;
 today = 0;
 targetDay = 100;
+dayStarting = true;
 dayLength = 30; // day length in seconds
 target = noone;
 lastTarget = noone;
+working = false;
 moveSpeed = 10;
 
 crops = ds_map_create();

@@ -778,6 +778,25 @@
                 "resourcePath": "sprites\\spr_light\\spr_light.yy",
                 "resourceType": "GMSprite"
             }
+        },
+        {
+            "Key": "07bee683-3c72-4d19-9a12-655877ab942b",
+            "Value": {
+                "id": "653f903b-caac-460b-9309-5a301ae6622f",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\\start_night\\start_night.yy",
+                "resourceType": "GMScript"
+            }
         }
     ],
     "room_order": [
@@ -785,7 +804,7 @@
         "8fa2ae31-7497-415a-9dc0-166ae9d66a45"
     ],
     "script_order": [
-        
+        "07bee683-3c72-4d19-9a12-655877ab942b"
     ],
     "tutorial": ""
 }
