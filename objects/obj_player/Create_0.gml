@@ -18,3 +18,6 @@ crops[? "potatoes"] = ["Potatoes", 4, 2];
 crops[? "lettuce"] = ["Lettuce", 2, 1];
 crops[? "beans"] = ["Beans", 5, 3];
 
+
+obj_lighting.depth = -10000;
+obj_GUI.depth = -11000;
