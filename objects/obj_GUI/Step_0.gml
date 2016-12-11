@@ -10,3 +10,4 @@ with(obj_player){
 }
 //show_debug_message("ALARM: "+ string(playerAlarm));
 workBar = (playerAlarm / (obj_player.workTime * room_speed)) * 100;
+hpBar = (obj_player.hp / obj_player.maxhp) * 100;

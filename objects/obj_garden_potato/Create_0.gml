@@ -8,3 +8,4 @@ workable = true;
 workedToday = false;
 updatedToday = true;
 harvestable = false;
+carrying = noone;

@@ -1,18 +1,25 @@
 /// @description Character movment
 if(room == rm_game){
+
 if(dayStarting){
-	
-obj_player.image_alpha = 1;
-obj_garden_potato.image_alpha = 1;
+	obj_player.image_alpha = 1;
+	obj_garden_potato.image_alpha = 1;
 	x = resetX;
 	y = resetY;
+	inBed = false;
 	obj_target.x = x;
 	obj_target.y = y;
 	target = obj_target;
 	lastTarget= noone;
 	obj_lighting.depth = -10000;
 	obj_GUI.depth = -11000;
+	if(carrying != noone){
+		carrying.x = obj_player.x - (carrying.sprite_width / 2);
+		carrying.y = obj_player.y - 350;
+	}
 	
+	working = false;
+	itemViewToggle();
 	for (var i = 0; i < array_length_1d(gardens); i += 1)
 	{
 		if(gardens[i].workedToday){
@@ -42,8 +49,8 @@ obj_garden_potato.image_alpha = 1;
 					gardens[i].growFrame = 5;
 				break;
 				case 5:
-				default:
 					gardens[i].growFrame = 7;
+					gardens[i].harvestable = true;
 				break;
 		
 
@@ -54,9 +61,11 @@ obj_garden_potato.image_alpha = 1;
 			switch(gardens[i].growDays){
 				case 0:
 				case 1:
+					createItem("potato",gardens[i].x - 50,gardens[i].y,gardens[i]);
 					gardens[i].growFrame =1;
 				break;
 				case 2:
+				
 					gardens[i].growFrame = 7;
 				break;
 				case 3:
@@ -65,6 +74,8 @@ obj_garden_potato.image_alpha = 1;
 				case 4:
 				default:
 					gardens[i].growFrame = 7;
+					
+					
 				break;
 		
 
@@ -100,8 +111,9 @@ if(target.object_index == obj_floor){
 }
 
 
-if(target != noone && target != lastTarget && !working){
+if(target != noone && target != lastTarget && !working && !inBed && object_is_ancestor(target.object_index, obj_walkable)){
 
+show_debug_message("TARGET: "+string(target) + " " + string(lastTarget));
 //if(resetReached){
 
 	if (target.x > x){
@@ -119,7 +131,9 @@ if(target != noone && target != lastTarget && !working){
 		if point_distance(x, y, target.x, target.y) > moveSpeed
 		{
 			move_towards_point(target.x, target.y, moveSpeed);
-			
+			if(carrying != noone){
+				updateCarryPosition();
+			}
 			depth = -y ;
 		
 		}
@@ -128,11 +142,25 @@ if(target != noone && target != lastTarget && !working){
 		
 			speed = 0;
 			if(target.workable){
-				if(!target.workedToday){
-					workTime=target.workTime;
-					alarm[0] = workTime * room_speed;
-					working = true;
+				if(target.harvestable){
+					carrying = target.carrying;
+					carrying.container = obj_player;
+					target.growDays = -1;
+					target.carrying = noone;
+					target.image_index = 0;
+					updateCarryPosition();
+				}else{
+					if(!target.workedToday){
+						workTime=target.workTime;
+						alarm[0] = workTime * room_speed;
+						working = true;
 					
+					}
+				}
+			}else{
+				if(target.object_index == obj_bed){
+					inBed = true;
+					image_alpha = .5;
 				}
 			}
 			
@@ -146,37 +174,25 @@ if(target != noone && target != lastTarget && !working){
 		{
 			move_towards_point(target.x, target.y-10, moveSpeed);
 			depth = -y;
-		
+			if(carrying != noone){
+				updateCarryPosition();
+			}
 		}
 		else
 		{ 
+		if(carrying != noone){
+				updateCarryPosition();
+			}
 			speed = 0;
 			lastTarget = target;
 			target = noone;
 		}
 	}
-	
-	/*
-}else{
-//show_debug_message("NOT resetReached");
 
-	if (resetX > x){
-		image_xscale = -1;
-	}else{
-		image_xscale = 1;
-	}
-	if point_distance(x, y, resetX, resetY-10) > moveSpeed + 150
-	{
-		move_towards_point(resetX, resetY-10, moveSpeed);
-		depth = -y;
-		
-	}
-	else
-	{ 
-	
 
-		resetReached = true;
-	}
-}*/
+if(carrying == noone){
+	
+	//createItem("potato");
+}
 }
 }

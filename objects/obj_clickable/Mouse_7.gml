@@ -5,7 +5,7 @@ if(mouse_check_button_released(mb_left)){
     if(click_id){
         //The id stored in "click_id" is the id of the clicked object!
 			show_debug_message("Clicked "+string(click_id.object_index) + "  " + string(obj_floor));
-			if(click_id.object_index == obj_floor){
+			if(click_id.object_index == obj_floor && !obj_player.inBed){
 				obj_target.x = mouse_x;
 				obj_target.y = mouse_y;
 				obj_target.image_alpha = 1;
@@ -13,7 +13,14 @@ if(mouse_check_button_released(mb_left)){
 				obj_player.resetReached = true;
 				obj_player.target = obj_target;
 			}else{
-				if(click_id != obj_player.target){
+			
+				if(click_id.object_index == obj_potato){
+					click_id.container.image_alpha = .5;
+					if(click_id.container != noone){
+						click_id = click_id.container;
+						obj_player.target = click_id;
+					}
+				}else if(click_id != obj_player.target && object_is_ancestor(click_id.object_index, obj_walkable)){
 					obj_player.target = click_id;
 					obj_player.resetReached = false;
 				}

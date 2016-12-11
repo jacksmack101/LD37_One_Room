@@ -5,8 +5,12 @@ if(room == rm_game){
 
 	if(workedToday){
 		if(harvestable){
-			var inst = instance_create_depth(obj_player.x,obj_player.y,-7000,obj_potato);
-			obj_player.carrying = inst;
+			
+			growDays = 0;
+			growFrame = 0;
+			image_index = growFrame;
+			harvestable = false;
+			workedToday = false;
 		}else{
 			if(image_index == 0){
 				growFrame = 1;
