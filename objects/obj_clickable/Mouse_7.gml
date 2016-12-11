@@ -5,11 +5,11 @@ if(mouse_check_button_released(mb_left)){
     if(click_id){
         //The id stored in "click_id" is the id of the clicked object!
 			show_debug_message("Clicked "+string(click_id.object_index) + "  " + string(obj_floor));
-			if(click_id.object_index == obj_floor.object_index){
+			if(click_id.object_index == obj_floor){
 				obj_target.x = mouse_x;
 				obj_target.y = mouse_y;
 				obj_target.image_alpha = 1;
-				obj_player.lastTarget = noone;
+				obj_player.lastTarget = obj_target_old;
 				obj_player.resetReached = true;
 				obj_player.target = obj_target;
 			}else{
