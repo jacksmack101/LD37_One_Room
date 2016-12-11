@@ -12,7 +12,7 @@ glowStep = -.005;
 }
 
 if(lightOff){
-	if (alpha <.85){
+	if (alpha <.65){
 		alpha += .05;
 	}
 

@@ -1,0 +1,111 @@
+Converting GML script : ${project_dir}\scripts\ext_background_xy__\ext_background_xy__.gml
+Converted builtin : line 6 : background_x[_bgIndex] = lerp(_data[1], _data[2], argument0 -> __background_set( e__BG.X, _bgIndex, lerp(_data[1], _data[2], argument0 )
+Converted builtin : line 7 : background_y[_bgIndex] = lerp(_data[3], _data[4], argument0 -> __background_set( e__BG.Y, _bgIndex, lerp(_data[3], _data[4], argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_background_x__\ext_background_x__.gml
+Converted builtin : line 3 : background_x[argument1] = argument0 -> __background_set( e__BG.X, argument1, argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_background_y__\ext_background_y__.gml
+Converted builtin : line 3 : background_y[argument1] = argument0 -> __background_set( e__BG.Y, argument1, argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_background_xyscale__\ext_background_xyscale__.gml
+Converted builtin : line 6 : background_xscale[_bgIndex] = lerp(_data[1], _data[2], argument0 -> __background_set( e__BG.XScale, _bgIndex, lerp(_data[1], _data[2], argument0 )
+Converted builtin : line 7 : background_yscale[_bgIndex] = lerp(_data[3], _data[4], argument0 -> __background_set( e__BG.YScale, _bgIndex, lerp(_data[3], _data[4], argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_background_xscale__\ext_background_xscale__.gml
+Converted builtin : line 3 : background_xscale[argument1] = argument0 -> __background_set( e__BG.XScale, argument1, argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_background_yscale__\ext_background_yscale__.gml
+Converted builtin : line 3 : background_yscale[argument1] = argument0 -> __background_set( e__BG.YScale, argument1, argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_background_hvspeed__\ext_background_hvspeed__.gml
+Converted builtin : line 6 : background_hspeed[_bgIndex] = lerp(_data[1], _data[2], argument0 -> __background_set( e__BG.HSpeed, _bgIndex, lerp(_data[1], _data[2], argument0 )
+Converted builtin : line 7 : background_vspeed[_bgIndex] = lerp(_data[3], _data[4], argument0 -> __background_set( e__BG.VSpeed, _bgIndex, lerp(_data[3], _data[4], argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_background_hspeed__\ext_background_hspeed__.gml
+Converted builtin : line 3 : background_hspeed[argument1] = argument0 -> __background_set( e__BG.HSpeed, argument1, argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_background_vspeed__\ext_background_vspeed__.gml
+Converted builtin : line 3 : background_vspeed[argument1] = argument0 -> __background_set( e__BG.VSpeed, argument1, argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_background_blend__\ext_background_blend__.gml
+Converted builtin : line 3 : background_blend[argument1[0]] = merge_colour(argument1[1], argument1[2], argument0 -> __background_set( e__BG.Blend, argument1[0], merge_colour(argument1[1], argument1[2], argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_background_alpha__\ext_background_alpha__.gml
+Converted builtin : line 3 : background_alpha[argument1] = argument0 -> __background_set( e__BG.Alpha, argument1, argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_background_colour__\ext_background_colour__.gml
+Converted builtin : line 3 : background_colour = merge_colour(argument1[0], argument1[1], argument0 -> __background_set_colour( merge_colour(argument1[0], argument1[1], argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_view_angle__\ext_view_angle__.gml
+Converted builtin : line 3 : view_angle[argument1] = argument0 -> __view_set( e__VW.Angle, argument1, argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_view_xy__\ext_view_xy__.gml
+Converted builtin : line 6 : view_xview[_viewIndex] = lerp(_data[1], _data[2], argument0 -> __view_set( e__VW.XView, _viewIndex, lerp(_data[1], _data[2], argument0 )
+Converted builtin : line 7 : view_yview[_viewIndex] = lerp(_data[3], _data[4], argument0 -> __view_set( e__VW.YView, _viewIndex, lerp(_data[3], _data[4], argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_view_x__\ext_view_x__.gml
+Converted builtin : line 3 : view_xview[argument1] = argument0 -> __view_set( e__VW.XView, argument1, argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_view_y__\ext_view_y__.gml
+Converted builtin : line 3 : view_yview[argument1] = argument0 -> __view_set( e__VW.YView, argument1, argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_view_dimensions__\ext_view_dimensions__.gml
+Converted builtin : line 6 : view_wview[_viewIndex] = lerp(_data[1], _data[2], argument0 -> __view_set( e__VW.WView, _viewIndex, lerp(_data[1], _data[2], argument0 )
+Converted builtin : line 7 : view_hview[_viewIndex] = lerp(_data[3], _data[4], argument0 -> __view_set( e__VW.HView, _viewIndex, lerp(_data[3], _data[4], argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_view_width__\ext_view_width__.gml
+Converted builtin : line 3 : view_wview[argument1] = argument0 -> __view_set( e__VW.WView, argument1, argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_view_height__\ext_view_height__.gml
+Converted builtin : line 3 : view_hview[argument1] = argument0 -> __view_set( e__VW.HView, argument1, argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_view_port_position__\ext_view_port_position__.gml
+Converted builtin : line 6 : view_xport[_viewIndex] = lerp(_data[1], _data[2], argument0 -> __view_set( e__VW.XPort, _viewIndex, lerp(_data[1], _data[2], argument0 )
+Converted builtin : line 7 : view_yport[_viewIndex] = lerp(_data[3], _data[4], argument0 -> __view_set( e__VW.YPort, _viewIndex, lerp(_data[3], _data[4], argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_view_port_x__\ext_view_port_x__.gml
+Converted builtin : line 3 : view_xport[argument1] = argument0 -> __view_set( e__VW.XPort, argument1, argument0 )
+
+Converting GML script : ${project_dir}\scripts\ext_view_port_y__\ext_view_port_y__.gml
+Converted builtin : line 3 : view_yport[argument1] = argument0 -> __view_set( e__VW.YPort, argument1, argument0 )
+
+Converting GML script : ${project_dir}\scripts\view_xview__\view_xview__.gml
+Converted builtin : line 3 : view_xview = argument0 -> __view_set( e__VW.XView, 0, argument0 )
+
+Converting GML script : ${project_dir}\scripts\view_yview__\view_yview__.gml
+Converted builtin : line 3 : view_yview = argument0 -> __view_set( e__VW.YView, 0, argument0 )
+
+Converting GML script : ${project_dir}\scripts\view_angle__\view_angle__.gml
+Converted builtin : line 3 : view_angle = argument0 -> __view_set( e__VW.Angle, 0, argument0 )
+
+Converting GML script : ${project_dir}\scripts\view_wview__\view_wview__.gml
+Converted builtin : line 3 : view_wview = argument0 -> __view_set( e__VW.WView, 0, argument0 )
+
+Converting GML script : ${project_dir}\scripts\view_hview__\view_hview__.gml
+Converted builtin : line 3 : view_hview = argument0 -> __view_set( e__VW.HView, 0, argument0 )
+
+added compatibility script background/__background_set.gml
+added compatibility script background/__background_set_colour.gml
+added compatibility script background/__background_set_internal.gml
+added compatibility script instance/instance_create.gml
+added compatibility script object/object_get_depth.gml
+added compatibility script tile/tile_get_x.gml
+added compatibility script tile/tile_get_y.gml
+added compatibility script tile/tile_layer_shift.gml
+added compatibility script tile/tile_set_alpha.gml
+added compatibility script tile/tile_set_blend.gml
+added compatibility script tile/tile_set_position.gml
+added compatibility script tile/tile_set_region.gml
+added compatibility script tile/tile_set_scale.gml
+added compatibility script view/__view_set.gml
+added compatibility script view/__view_set_internal.gml
+added compatibility script background/__init_background.gml
+added compatibility script view/__init_view.gml
+added compatibility script __init_global.gml
+added compatibility script background/__background_get_colour_element.gml
+added compatibility script background/__background_get_element.gml
+added compatibility script background/__background_get_internal.gml
+added compatibility script background/__background_set_element.gml
+added compatibility script view/__view_get.gml
+added compatibility script __global_object_depths.gml

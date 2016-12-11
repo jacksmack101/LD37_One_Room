@@ -1,0 +1,9 @@
+/// TweenSimpleScale(xScale1,yScale1,xScale2,yScale2,dur,ease[,delay])
+
+var _delay = 0;
+if (argument_count == 7) _delay = argument[6];
+
+var _tween = TweenFire(id, ext_image_xyscale__, argument[5], TWEEN_MODE_ONCE, global.TGMS_SimpleDelta, _delay, argument[4], 0, 1, argument[0], argument[2], argument[1], argument[3]);    
+TGMS_OverrideProperty(id, ext_image_xyscale__, _tween);
+return _tween;
+

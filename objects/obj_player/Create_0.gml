@@ -22,7 +22,9 @@ moveSpeed = 10;
 workTime = 0;
 carrying = noone;
 
-upgrades = ds_list_create();
+upgradeList = ds_list_create();
+upgrades = [0,0,0,0,0]
+resetUpgrades();
 items = ds_list_create();
 for (var i = 0; i < instance_number(obj_garden_potato); i += 1)
    {

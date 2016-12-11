@@ -1,0 +1,4 @@
+/// TweenSystemGetUpdateInterval()
+
+return SharedTweener().updateInterval;
+

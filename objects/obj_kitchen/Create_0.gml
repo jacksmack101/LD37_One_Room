@@ -3,3 +3,4 @@
 
 
 workable = true;
+harvestable = false;

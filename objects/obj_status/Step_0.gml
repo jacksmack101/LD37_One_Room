@@ -22,5 +22,5 @@ if(mouseActive){
 			tempVar = !tempVar;
 		}
 	}
-	show_debug_message("TEMPVAR: "+string(tempVar));
+	//show_debug_message("TEMPVAR: "+string(tempVar));
 }
