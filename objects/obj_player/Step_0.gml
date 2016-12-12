@@ -6,6 +6,7 @@ if(dayStarting){
 	obj_garden_potato.image_alpha = 1;
 	x = resetX;
 	y = resetY;
+	takeDamage(5);
 	inBed = false;
 	obj_target.x = x;
 	obj_target.y = y;
@@ -50,7 +51,7 @@ if(dayStarting){
 						break;
 						case 5:
 							gardens[i].growFrame = 7;
-							gardens[i].harvestable = true;
+							createItem("potato",gardens[i].x - 50,gardens[i].y,gardens[i]);
 						break;
 		
 
@@ -61,19 +62,43 @@ if(dayStarting){
 					switch(gardens[i].growDays){
 						case 0:
 						case 1:
-							createItem("potato",gardens[i].x - 50,gardens[i].y,gardens[i]);
 							gardens[i].growFrame =1;
 						break;
 						case 2:
 				
-							gardens[i].growFrame = 7;
+							gardens[i].growFrame = 3;
 						break;
 						case 3:
-							gardens[i].growFrame = 5;
-						break;
-						case 4:
 						default:
 							gardens[i].growFrame = 7;
+							createItem("lettuce",gardens[i].x - 50,gardens[i].y,gardens[i]);
+					
+					
+						break;
+		
+
+					}
+				break;
+				case obj_garden_pepper:
+					switch(gardens[i].growDays){
+						case 0:
+						case 1:
+						case 2:
+							gardens[i].growFrame =1;
+						break;
+						case 3:
+						case 4:
+				
+							gardens[i].growFrame = 7;
+						break;
+						case 5:
+						case 6:
+							gardens[i].growFrame = 5;
+						break;
+						case 7:
+						default:
+							gardens[i].growFrame = 7;
+							createItem("pepper",gardens[i].x - 50,gardens[i].y,gardens[i]);
 					
 					
 						break;
@@ -82,10 +107,17 @@ if(dayStarting){
 					}
 				break;
 				}
+			if(upgrades[4]){
 	
+				if(irandom(5) == 1){
+					gardens[i].growDays++;
+				}
+	
+			}
 			gardens[i].image_index = gardens[i].growFrame;
 			}
 		}
+	
 	
 	dayStarting = false;
 	}
@@ -110,10 +142,14 @@ if(dayStarting){
 	
 	}
 
-
 if(target != noone && target != lastTarget && !working && !inBed && object_is_ancestor(target.object_index, obj_walkable)){
 
-show_debug_message("TARGET: "+string(target) + " " + string(lastTarget));
+
+
+
+	researching = false;
+
+//show_debug_message("TARGET: "+string(target) + " " + string(lastTarget));
 //if(resetReached){
 
 	if (target.x > x){
@@ -142,8 +178,27 @@ show_debug_message("TARGET: "+string(target) + " " + string(lastTarget));
 		
 			speed = 0;
 			if(target.workable){
-				animateUse(target);
+				if(target.object_index == obj_kitchen){
+					if(carrying != noone){
+						animateUse(target);
+					}else{
+						audio_play_sound(snd_use,1,0);
+					}
+				}else{
+					if(!target.workedToday){
+						animateUse(target);
+						if(carrying != noone){
+						dropItem(0);
+						}
+					}else{
+						audio_play_sound(snd_use,1,0);
+						
+						researching = false;
+					}
+				}
 				if(target.harvestable){
+				
+								researching = false;
 					carrying = target.carrying;
 					carrying.container = obj_player;
 					target.growDays = -1;
@@ -153,12 +208,21 @@ show_debug_message("TARGET: "+string(target) + " " + string(lastTarget));
 					target.harvestable = false;
 				}else{
 					if(isEquipment(target.object_index)){
-						
+						show_debug_message("TEST ****************************");
 						switch(target.object_index){
 							case obj_kitchen:
+							
+								researchMove = true;
+								researching = false;
 							if(carrying != noone){
-								obj_player.hp += carrying.energy * 5;
+								var tempMulti = 5;
+								if(upgrades[0] == 1){
+									tempMulti += 1;
+								}
+								obj_player.hp += carrying.energy * tempMulti;
 								dropItem(1);
+							
+								
 							}
 							break;
 							case obj_research:
@@ -166,40 +230,69 @@ show_debug_message("TARGET: "+string(target) + " " + string(lastTarget));
 								dropItem(0);
 							}
 							if(!target.workedToday){
-								workTime=target.workTime;
-								alarm[0] = workTime * room_speed;
-								working = true;
-					
+								target.workedToday = true;
+								researching = true;
+								
+								researchMove = false;
+								//workTime=target.workTime;
+								//alarm[0] = workTime * room_speed;
+								working = false;
+								audio_play_sound(snd_happyUse,1,0);
 							}
-							upgrades[targetUpgrade]+= 1;
+							
 							if(upgrades[targetUpgrade] >=1){
 								var tempStr = "";
-								switch(upgrades[targetUpgrade]){
+								switch(targetUpgrade){
 								case 0:
 									tempStr = "Health restoration";
+									
 								break;
 								case 1:
-									tempStr = "Potato Growth";
+									tempStr = "Turbine Optimization";
+									stepDist += 1;
 								break;
 								case 2:
-									tempStr = "Pepper Processing";
+									tempStr = "Movement Speed";
+									moveSpeed += 5;
 								break;
 								case 3:
 									tempStr = "Backup Life Support";
+									dayLength += 2;
 								break;
 								case 4:
-									tempStr = "Random Crop Watering";
-								break;
+									tempStr = "Random Crop Advancment";
+					 			break;
 								
 								}
-								
+								 upgradeCount++;
 								scr_text(tempStr + " research complete!",.5,target.x-400,target.y);
-								obj_player.targetUpgrade = ds_list_find_index(obj_player.upgradeList,0);
+								obj_player.targetUpgrade = ds_list_find_value(obj_player.upgradeList,0);
 								ds_list_delete( obj_player.upgradeList, 0);
 								
 							}else{
-								scr_text("Researching upgrades...",.5,target.x-400,target.y);
+								scr_text("Researching upgrades... ",.5,target.x-400,target.y);
 							}
+							
+							break;
+							
+							case obj_bike:
+							
+								researchMove = true;
+								researching = false;
+								if(carrying != noone){
+								dropItem(0);
+								}
+								if(!target.workedToday){
+									workTime=target.workTime;
+									target.workedToday = true;
+									alarm[0] = workTime * room_speed;
+									working = true;
+									audio_play_sound(snd_happyUse,1,0);
+									progress += stepDist;
+									show_debug_message("progress: "+string(progress));
+									takeDamage(10);
+								}
+							
 							
 							break;
 						
@@ -210,6 +303,9 @@ show_debug_message("TARGET: "+string(target) + " " + string(lastTarget));
 						
 					}else{
 						if(!target.workedToday){
+						
+								researchMove = true;
+							audio_play_sound(snd_happyUse,1,0);
 							workTime=target.workTime;
 							alarm[0] = workTime * room_speed;
 							working = true;
@@ -255,4 +351,59 @@ show_debug_message("TARGET: "+string(target) + " " + string(lastTarget));
 		//createItem("potato");
 	}
 }
+//show_debug_message("RESEARCH: "+ string(upgrades[targetUpgrade]));
+//show_debug_message("RESEARCH1: "+ string(researchMove));
+
+	if(researching){
+	
+		
+		if(upgrades[targetUpgrade] >=1){
+			var tempStr = "";
+			if(upgradeCount <= array_length_1d(upgrades)){
+			switch(targetUpgrade){
+			case 0:
+				tempStr = "Health restoration";
+									
+			break;
+			case 1:
+				tempStr = "Turbine Optimization";
+				stepDist += 1;
+			break;
+			case 2:
+				tempStr = "Movement Speed";
+				moveSpeed += 5;
+			break;
+			case 3:
+				tempStr = "Backup Life Support";
+				dayLength += 2;
+			break;
+			case 4:
+				tempStr = "Random Crop Advancment";
+			break;
+								
+			}
+			upgradeCount++;
+					show_debug_message("RESEARCH1: "+ string( targetUpgrade ));			 
+			scr_text(tempStr + " research complete!",.5,obj_research.x-400,obj_research.y);
+			targetUpgrade = ds_list_find_value(upgradeList,0);
+			ds_list_delete( obj_player.upgradeList, 0);
+					show_debug_message("RESEARCH2: "+ string( targetUpgrade ));	
+			researching = false;	
+			}else{
+				scr_text("All research complete!",.5,obj_research.x-400,obj_research.y);
+				researching = false;	
+			}			
+		}
+			if(researchTimer >= 30){
+				researchTimer = 0
+				upgrades[targetUpgrade]+= .05;
+			}else{
+			if(!researchMove){
+				researchTimer++;
+				}
+							
+			//show_debug_message("RESEARCH2: "+ string(upgrades[targetUpgrade]));	
+		}
+	}
+
 }

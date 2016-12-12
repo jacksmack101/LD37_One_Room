@@ -1,5 +1,5 @@
 /// @description potato plant
-workTime = 2;
+workTime = 1.5;
 crop = "potatoes";
 growDays = -1;
 growFrame = 0;

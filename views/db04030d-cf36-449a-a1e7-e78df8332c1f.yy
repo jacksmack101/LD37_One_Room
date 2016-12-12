@@ -13,7 +13,9 @@
         "ce82de99-a558-4108-9174-8d5c57a8c118",
         "a1a76f28-7055-4c91-9071-0cc2b0abb37e",
         "56b0626c-775f-4556-844c-7fb0ac577325",
-        "ed5877ab-7203-43ce-88dc-a08ee3f35b3d"
+        "ed5877ab-7203-43ce-88dc-a08ee3f35b3d",
+        "5ffc54b9-fcd5-482a-a6de-10292d79e3a9",
+        "386b9458-848a-4da0-a456-8e8c9d1d210c"
     ],
     "filterType": "GMObject",
     "folderName": "Scripting Objects",

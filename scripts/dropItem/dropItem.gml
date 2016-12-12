@@ -8,8 +8,9 @@ if(obj_player.carrying != noone){
 		}else{
 			player.carrying.x = player.x + (100 * -player.image_xscale);
 			player.carrying.y = player.y - 70;
-			t = TweenFire(player.carrying, image_alpha__, EaseInOutQuad, TWEEN_MODE_BOUNCE, true, 0.0, 3.0, 1, 2);
-			TweenDestroyWhenDone(t,true,true);
+			//t = TweenFire(player.carrying, image_alpha__, EaseInOutQuad, TWEEN_MODE_BOUNCE, true, 0.0, 3.0, 1, 2);
+			tw = TweenFire(player.carrying, image_alpha__, EaseInOutQuad, TWEEN_MODE_PATROL, true, 0.0, 0.06, 1, 0);
+			TweenAddCallback(tw,TWEEN_EV_CONTINUE ,player.carrying,destroy_myTween,tw);
 		}
 		player.carrying = noone;
 	if(argument[0] == 1){ // add to health

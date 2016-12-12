@@ -12,6 +12,10 @@ audio_play_sound(snd_pain,1,0);
 }else{
 
 audio_play_sound(snd_death,1,0);
+obj_player.alarm[0] = -1;
+obj_GUI.alarm[0] = -1;
+obj_GUI.alarm[1] = -1;
+obj_GUI.alarm[2] = -1;
 room_goto(rm_gameOver);
 }
 

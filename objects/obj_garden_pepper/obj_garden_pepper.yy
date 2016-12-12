@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_garden_pepper",
     "eventList": [
-        
+        {
+            "id": "81196fb9-fb96-4cc0-a01b-4994fe64cfb1",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "6c1781bc-1902-4a31-b551-aedf06009168"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "parentObjectId": "22155490-0933-4adc-90db-cd3fe13d46c9",

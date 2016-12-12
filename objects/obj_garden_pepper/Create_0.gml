@@ -1,0 +1,10 @@
+workTime = 2;
+crop = "peppers";
+growDays = -1;
+growFrame = 0;
+growState = 0;
+workable = true;
+workedToday = false;
+updatedToday = true;
+harvestable = false;
+carrying = noone;

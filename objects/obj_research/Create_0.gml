@@ -6,4 +6,4 @@ workedToday = false;
 updatedToday = true;
 harvestable = false;
 carrying = noone;
-workTime = 3;
+workTime = 7;
